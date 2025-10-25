@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Lab1_MusicalInstruments
 {
-    // 🔹 Абстрактний клас
+
     abstract class MusicalInstrument
     {
         public string Name { get; set; }
@@ -29,13 +30,11 @@ namespace Lab1_MusicalInstruments
             Country = other.Country;
         }
 
-        // 🔹 Абстрактні методи
         public abstract void Sound();
         public abstract void Show();
         public abstract void Desc();
         public abstract void History();
 
-        // 🔹 Загальний метод для виведення інформації
         public virtual void ShowInfo()
         {
             Show();
@@ -46,7 +45,6 @@ namespace Lab1_MusicalInstruments
         }
     }
 
-    // 🎻 Скрипка
     class Violin : MusicalInstrument
     {
         public Violin() : base("Скрипка", "Смичковий", "Італія") { }
@@ -59,7 +57,6 @@ namespace Lab1_MusicalInstruments
         public override void History() => Console.WriteLine("Виникла у XVI столітті в Італії.");
     }
 
-    // 🎺 Тромбон
     class Trombone : MusicalInstrument
     {
         public Trombone() : base("Тромбон", "Духовий", "Франція") { }
@@ -68,11 +65,10 @@ namespace Lab1_MusicalInstruments
 
         public override void Sound() => Console.WriteLine("Тромбон звучить гучно і мідно.");
         public override void Show() => Console.WriteLine($"Назва інструменту: {Name}");
-        public override void Desc() => Console.WriteLine("Духовий інструмент з рухомим смичком (кулісою).");
+        public override void Desc() => Console.WriteLine("Духовий інструмент з рухомим смичком.");
         public override void History() => Console.WriteLine("З’явився у XV столітті, спочатку у Франції.");
     }
 
-    // 🎸 Укулеле
     class Ukulele : MusicalInstrument
     {
         public Ukulele() : base("Укулеле", "Струнний", "Гаваї") { }
@@ -85,7 +81,6 @@ namespace Lab1_MusicalInstruments
         public override void History() => Console.WriteLine("З’явилась у XIX столітті на Гаваях.");
     }
 
-    // 🎻 Віолончель
     class Cello : MusicalInstrument
     {
         public Cello() : base("Віолончель", "Смичковий", "Італія") { }
@@ -98,11 +93,13 @@ namespace Lab1_MusicalInstruments
         public override void History() => Console.WriteLine("Створена у XVI столітті в Італії.");
     }
 
-    // 🧮 Головна програма
     class Program
     {
         static void Main(string[] args)
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+
+
             MusicalInstrument[] instruments =
             {
                 new Violin(),
@@ -116,7 +113,7 @@ namespace Lab1_MusicalInstruments
                 instrument.ShowInfo();
             }
 
-            Console.WriteLine("Натисніть будь-яку клавішу для завершення...");
+            Console.WriteLine("Натисніть будь-яку клавішу для завершення!");
             Console.ReadKey();
         }
     }
